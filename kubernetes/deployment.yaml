@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: churn-predictor
+  labels:
+    app: churn-predictor
+    component: ml-model
+    version: v2.1-telecom
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: churn-predictor
+  template:
+    metadata:
+      labels:
+        app: churn-predictor
+        component: ml-model
+    spec:
+      containers:
+      - name: ml-model
+        image: your-registry/churn-predictor:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8501
+          protocol: TCP
+        env:
+        - name: MODEL_VERSION
+          value: "v2.1-telecom"
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: STREAMLIT_SERVER_PORT
+          value: "8501"
+        - name: STREAMLIT_SERVER_ADDRESS
+          value: "0.0.0.0"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /_stcore/health
+            port: 8501
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /_stcore/health
+            port: 8501
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: models
+          mountPath: /app/models
+          readOnly: true
+        - name: config
+          mountPath: /app/config
+      volumes:
+      - name: models
+        persistentVolumeClaim:
+          claimName: model-storage
+      - name: config
+        configMap:
+          name: churn-predictor-config
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: churn-predictor-service
+  labels:
+    app: churn-predictor
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8501
+    protocol: TCP
+    name: http
+  selector:
+    app: churn-predictor
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: model-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: churn-predictor-config
+data:
+  model_type: "xgboost"
+  threshold: "0.5"
+  avg_customer_value: "65"
+  acquisition_cost_multiplier: "7"
+
