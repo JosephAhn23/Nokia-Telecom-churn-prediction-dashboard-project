@@ -4,9 +4,9 @@
 
 ---
 
-## 📄 **PROJECT DOCUMENTATION**
+##  **PROJECT DOCUMENTATION**
 
-**[👉 View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)**
+**[ View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)**
 
 *Click the link above or find "Telecom churn prediction - Joseph Ahn.pdf" in the repository files to view the complete project summary, technical details, business impact analysis, and alignment with Nokia's ML Engineer role requirements.*
 
@@ -77,26 +77,6 @@ This project demonstrates a complete end-to-end ML pipeline for telecom churn pr
    The dashboard will open at `http://localhost:8501`
 
 ---
-
-## Project Structure
-
-```
-├── data_generator.py          # Synthetic telecom data generation
-├── train_models.py            # ML model training pipeline
-├── dashboard.py               # Streamlit dashboard application
-├── agentic_workflow.py        # Agentic AI workflow simulation
-├── network_optimization.py    # Network-churn correlation analysis
-├── retraining_pipeline.py    # MLOps retraining with drift detection
-├── example_usage.py           # Programmatic usage examples
-├── run_pipeline.py           # Complete pipeline runner
-├── Dockerfile                 # Docker container configuration
-├── docker-compose.yml         # Docker Compose setup
-├── kubernetes/                # Kubernetes deployment files
-│   ├── deployment.yaml        # K8s deployment config
-│   └── hpa.yaml               # Horizontal Pod Autoscaler
-├── requirements.txt           # Python dependencies
-└── Telecom churn prediction - Joseph Ahn.pdf  # Full project documentation
-```
 
 ---
 
@@ -174,26 +154,3 @@ This project directly addresses Nokia's requirements:
 - ✅ **MLOps Pipeline**: Production-ready with drift detection
 
 ---
-
-## Documentation
-
-- **[Full Project Summary (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)** - Complete technical and business documentation
-
----
-
-## Author
-
-**Joseph Ahn**
-
-- GitHub: [@JosephAhn23](https://github.com/JosephAhn23)
-- Repository: [Nokia---Telecom-churn-prediction-dashboard-project](https://github.com/JosephAhn23/Nokia---Telecom-churn-prediction-dashboard-project)
-
----
-
-## License
-
-This project is provided as-is for demonstration purposes.
-
----
-
-**Built to demonstrate ML capabilities specifically aligned with Nokia's ML Engineer role requirements.**
