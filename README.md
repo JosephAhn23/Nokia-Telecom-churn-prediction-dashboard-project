@@ -2,9 +2,21 @@
 
 **A comprehensive machine learning solution for predicting customer churn in telecom services, featuring real-time predictions, business impact analysis, and MLOps-ready deployment.**
 
-## 📄 [View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)
+---
 
-**👉 Click the link above to view the complete project summary, technical details, and business impact analysis.**
+## 📄 **PROJECT DOCUMENTATION**
+
+**[👉 View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)**
+
+*Click the link above or find "Telecom churn prediction - Joseph Ahn.pdf" in the repository files to view the complete project summary, technical details, business impact analysis, and alignment with Nokia's ML Engineer role requirements.*
+
+**The PDF includes:**
+- Executive summary with key metrics
+- Complete technical implementation details
+- Business impact calculations ($39M+ revenue preservation)
+- Model performance analysis
+- Nokia role alignment
+- Interview talking points
 
 ---
 
