@@ -6,7 +6,7 @@
 
 ##  **PROJECT DOCUMENTATION**
 
-**[ View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)**
+**[👉 View Full Project Documentation (PDF)](./Telecom%20churn%20prediction%20-%20Joseph%20Ahn.pdf)**
 
 *Click the link above or find "Telecom churn prediction - Joseph Ahn.pdf" in the repository files to view the complete project summary, technical details, business impact analysis, and alignment with Nokia's ML Engineer role requirements.*
 
